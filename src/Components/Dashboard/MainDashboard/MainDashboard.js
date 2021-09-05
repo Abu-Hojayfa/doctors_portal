@@ -1,10 +1,17 @@
 import React from 'react';
-import AppointmentDashboard from '../AppointmentDashboard/AppointmentDashboard/AppointmentDashboard';
+import Sidebar from '../Sidebar/Sidebar';
 
 const MainDashboard = () => {
   return (
     <div style={{backgroundColor:'#e5fcff'}}>
-      <AppointmentDashboard />
+      <div className="container-fluid row m-0 ps-0">
+        <div className="col-md-2 ps-0">
+          <Sidebar />
+        </div>
+        <div className="col-md-9 ps-3">
+          
+        </div>
+      </div>
     </div>
   );
 };

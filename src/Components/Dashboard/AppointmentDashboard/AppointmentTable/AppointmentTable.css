@@ -1,3 +1,38 @@
-.borderless td, .borderless th {
+.borderless td,
+.borderless th {
   border: none;
+}
+
+.containerOfAllAppoint {
+  margin-top: 20%;
+  padding: 20px 30px;
+  border-radius: 10px;
+  background: #ffffff;
+  box-shadow: -6px -6px 10px rgba(143, 143, 143, 0.5),
+    6px 6px 12px #ffffff00;
+}
+
+.containerOfAllAppoint h5:nth-child(1) {
+  color: #05bdd1;
+}
+
+.borderless th {
+  padding-top: 40px !important;
+  color: gray;
+  font-size: 20px;
+  text-align: center
+}
+
+.borderless th:nth-child(1) {
+  text-align: left;
+}
+
+.borderless td:nth-child(1) {
+  text-align: left;
+}
+
+.borderless td {
+  font-size: 18px;
+  text-align: center;
+  font-weight: 600;
 }

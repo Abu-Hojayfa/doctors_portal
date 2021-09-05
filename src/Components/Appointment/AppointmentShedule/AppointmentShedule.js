@@ -24,7 +24,7 @@ const AppointmentShedule = ({value}) => {
                 <h3>{data.sub}</h3>
                 <h4>{data.openingTime} - {data.closingTime}</h4>
                 <p>{data.space} SPACES AVAILABLE</p>  
-                <AppointmentQuary time={value} trtment ={data.sub} />
+                <AppointmentQuary openTime={data.openingTime} closeTime={data.closingTime} time={value} trtment ={data.sub} />
               </div>
             </div>
             )

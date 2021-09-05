@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from "react";
 import "./AppointmentTable.css";
+import moment from "moment";
+import Loader  from '../../../../images/loader.gif';
 
 const AppointmentTable = ({ value }) => {
   const selectedDate = value.toDateString();
 
   const [dateValue, setDateValue] = useState({});
   const [patientInfo, setPatientInfo] = useState([]);
+  const [loader, setLoader] = useState(true);
 
   if (selectedDate !== dateValue.date) {
     setDateValue({ date: selectedDate });
@@ -18,36 +21,51 @@ const AppointmentTable = ({ value }) => {
       body: JSON.stringify(dateValue),
     })
       .then((response) => response.json())
-      .then((data) => setPatientInfo(data));
+      .then((data) => {
+        setPatientInfo(data);
+        setLoader(false);
+      });
   }, [dateValue]);
 
   return (
-    <div className="pt-5 mt-5">
-      <div className="table-info d-flex justify-content-around">
+    <div className="containerOfAllAppoint">
+      <div className="table-info d-flex justify-content-between">
         <h5>Appointments</h5>
-        <h5>{selectedDate}</h5>
+        <h5 className="text-secondary">
+          {moment(selectedDate).format("DD, MMMM YYYY")}
+        </h5>
       </div>
-      {patientInfo.length > 0 ? (
-        <table class="table borderless text-center">
-          <thead>
-            <tr>
-              <th scope="col">Name</th>
-              <th scope="col">Doctor</th>
-              <th scope="col">Phone Number</th>
-            </tr>
-          </thead>
-          <tbody>
-            {patientInfo.map((data) => (
-              <tr key={data._id}>
-                <td>{data.name}</td>
-                <td>Dr. {data.doctor}</td>
-                <td>{data.number}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+      {loader ? (
+        <img className="img-fluid" style={{ marginLeft: "20vh" }} src={Loader} alt=""  />
       ) : (
-        <h1 className="text-center pt-5 mt-5 text-danger">No Bookings Today</h1>
+        <>
+          {patientInfo.length > 0 ? (
+            <table class="table borderless">
+              <thead>
+                <tr>
+                  <th scope="col">Name</th>
+                  <th scope="col">Doctor</th>
+                  <th scope="col">Phone Number</th>
+                  <th scope="col">Schedule Time</th>
+                </tr>
+              </thead>
+              <tbody>
+                {patientInfo.map((data) => (
+                  <tr key={data._id}>
+                    <td>{data.name}</td>
+                    <td>Dr. {data.doctor}</td>
+                    <td>{data.number}</td>
+                    <td>{data.openTime}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          ) : (
+            <h3 className="text-center pt-5 pb-5 text-danger">
+              No Appointments on {moment(selectedDate).format("DD, MMMM YYYY")}{" "}
+            </h3>
+          )}
+        </>
       )}
     </div>
   );
