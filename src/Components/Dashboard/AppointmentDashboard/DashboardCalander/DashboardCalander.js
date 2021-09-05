@@ -3,8 +3,6 @@ import 'react-calendar/dist/Calendar.css';
 import Calendar from 'react-calendar';
 
 const DashboardCalander = ({onChange, value}) => {
-
-  console.log(value.toDateString())
   return (
     <div className='pt-5'>
       <h2 className='pt-2 ps-1 pb-5'>Appointments</h2>

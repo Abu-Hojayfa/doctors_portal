@@ -40,7 +40,7 @@ const AppointmentTable = ({ value }) => {
       ) : (
         <>
           {patientInfo.length > 0 ? (
-            <table class="table borderless">
+            <table className="table borderless">
               <thead>
                 <tr>
                   <th scope="col">Name</th>
