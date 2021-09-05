@@ -1,0 +1,27 @@
+.patient-quary{
+  padding: 15px 20px;
+}
+.input-grp input,
+.input-grp select{
+  width: 400px;
+  padding: 5px 10px;
+  font-size: 20px;
+  border: 1px solid rgb(192, 192, 192);
+  border-radius: 10px;
+  margin-top: 30px;
+  margin-left: 15px;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.input-grp p{
+  color: red;
+  padding: 0;
+  margin: 0;
+  padding-left: 20px;
+}
+.input-grp select{
+  width: 400px;
+}

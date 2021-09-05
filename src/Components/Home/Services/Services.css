@@ -1,0 +1,64 @@
+.serviceClass{
+  width: 90%;
+  margin: auto;
+}
+
+.serviceIntro h5{
+  font-size: 30px;
+  font-weight: 700;
+  color: #1CC7C1;
+  margin-bottom: 20px;
+}
+.serviceIntro h2{
+  font-size: 60px;
+  color: #3A4256;
+  font-weight: 700;
+  margin-bottom: 70px;
+}
+.serviceInfo{
+  padding: 30px;
+  margin: 50px 60px;
+  text-align: center;
+}
+.serviceInfo img{
+  width: 120px;
+  margin-bottom: 40px;
+}
+.serviceInfo:nth-child(2) img,
+.serviceInfo:nth-child(3) img
+{
+  width: 100px;
+}
+.serviceInfo h3{
+  font-size: 35px;
+  color: rgb(97, 97, 97);
+  margin-bottom: 40px;
+}
+.serviceInfo p{
+  font-size: 22px;
+  text-align: center;
+  color: grey;
+}
+.exception-img img{
+  height: 90%;
+}
+.exception-info h1{
+  font-size: 60px;
+  color: #3A4256;
+  margin-bottom: 60px;
+}
+.exception-info p{
+  font-size: 22px;
+  color: gray;
+  letter-spacing: 2px;
+  word-spacing: 5px;
+  line-height: 40px;
+}
+.exception-btn{
+  font-size: 22px;
+  color: rgb(255, 255, 255);
+  font-weight: 600;
+  background-image: linear-gradient(to right top, #11d0da, #0ad0de, #07d0e2, #09cfe6, #0fcfea);
+  padding: 15px 35px;
+  margin-top: 50px;
+}

@@ -1,0 +1,30 @@
+.footer-container{
+  background-image: url('../../../images/footerbg.png');
+  background-size: cover;
+}
+.huda h5{
+  font-size: 30px;
+  margin: 20px 0;
+  font-weight: 700;
+  color: #1CC7C1;
+}
+.huda p,
+.copy-right{
+  font-size: 22px;
+  font-weight: 600;
+  color: grey;
+}
+.social-icons{
+  color: #1CC7C1;
+  font-size: 45px;
+  margin: 20px
+}
+.first-icon{
+  margin-left: 0 ;
+}
+.call-btn{
+  font-size: 25px;
+  color: aliceblue;
+  background-image: linear-gradient(to right top, #11d0da, #0ad0de, #07d0e2, #09cfe6, #0fcfea);
+  padding: 15px 30px;
+}

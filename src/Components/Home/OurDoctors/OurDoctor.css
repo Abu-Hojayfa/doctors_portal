@@ -1,0 +1,25 @@
+.doctors-container{
+  width: 80%;
+  margin: auto !important;
+  margin-bottom: 100px !important;
+}
+.doctors-container h5{
+  font-size: 35px;
+  margin: 50px 0;
+  font-weight: 700;
+  color: #1CC7C1;
+}
+.doctors-container img{
+  width: 350px;
+}
+.container {
+  padding: 30px;
+}
+.container h3{
+  margin-top: 20px;
+}
+.container p{
+  color: gray;
+  font-weight: 600;
+  font-size: 20px;
+}

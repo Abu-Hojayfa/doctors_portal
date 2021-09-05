@@ -1,0 +1,39 @@
+.appointmentContainer{
+  background-image: url('../../../images/Mask Group 2.png');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.react-calendar{
+  width: 500px !important;
+  padding: 50px;
+  border: 1px solid transparent !important;
+  box-shadow: 2px 2px 10px grey;
+  border-radius: 15px;
+}
+.react-calendar__navigation__label{
+  font-size: 25px;
+  color: grey;
+}
+abbr[title]{
+  text-decoration: none !important;
+  font-size: 18px;
+  font-weight: 500 !important;
+}
+.react-calendar__tile--now{
+  background-color: #c9fbff !important;
+  border-radius: 5px;
+} 
+.react-calendar__month-view__weekdays__weekday{
+  margin: 30px 0 10px 0;
+}
+.react-calendar__month-view__days__day{
+  font-size: 20px;
+}
+.react-calendar__navigation__arrow{
+  font-size: 30px;
+  color: grey;
+}
+.react-calendar__tile--active{
+  background-image: linear-gradient(to right top, #11d0da, #0ad0de, #07d0e2, #09cfe6, #0fcfea) !important;
+  border-radius: 5px;
+}

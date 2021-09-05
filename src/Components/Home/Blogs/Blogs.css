@@ -1,0 +1,52 @@
+.blog-container{
+  padding-top: 50px;
+  width: 90%;
+}
+.blog-container>h5{
+  color: #1CC7C1;
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+.blog-container h2{
+  font-size: 50px;
+  color: #3A4256;
+  margin-bottom: 80px;
+}
+.blogs{
+  margin-top: 30px;
+  padding: 30px 40px;
+  border: 1px solid rgb(197, 196, 196);
+  border-radius: 15px;
+  position: relative;
+}
+.blogs img{
+  width: 70px;
+}
+.blogs h4{
+  color: #1CC7C1;
+}
+.blogs h2{
+  font-size: 30px;
+  color: #3A4256;
+  margin-bottom: 20px;
+}
+.blogs p{
+  font-size: 22px;
+  color: grey;
+}
+
+.blogs:hover{
+  background-image: linear-gradient(to right top, #11d0da, #0ad0de, #07d0e2, #09cfe6, #0fcfea);
+}
+.blogs:hover h4{
+  color: black;
+}
+
+.blogs:hover::after{
+  position: absolute;
+  content: '→';
+  font-size: 80px;
+  color: rgb(255, 255, 255);
+  left: 30px;
+  bottom: -30px;
+}

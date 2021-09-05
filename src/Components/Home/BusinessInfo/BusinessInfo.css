@@ -1,0 +1,26 @@
+.businessInfoMain{
+  width: 80%;
+  margin: auto !important;
+}
+.businessClass{
+  background-color: #1CC7C1;
+  padding: 20px 10px;
+  margin: 10px;
+  border-radius: 5px;
+  width: 32%;
+  color: #fff;
+}
+.businessClass:nth-child(2){
+  background-color: #3A4256;
+}
+.icon{
+  font-size: 70px;
+  padding-right: 20px;
+}
+.businessClass h6{
+  font-size: 26px;
+  margin-top: 20px;
+}
+.businessClass p{
+  font-size: 18px;
+}

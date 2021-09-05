@@ -1,0 +1,52 @@
+.appointment-container{
+  margin-top: 200px !important;
+  background-image: url('../../../images/appBg.png');
+  height: 620px;
+  position: relative;
+}
+.appointment-container::before{
+  position: absolute;
+  top: 0;
+  content: '';
+  width: 100%;
+  height: 100%;
+  background-color: #3A4256;
+  opacity: 0.9;
+}
+.appointment-info,
+.appointment-img{
+  height: 550px;
+}
+.appointment-img img{
+  height: 820px;
+}
+.appoint-info:nth-child(1) img{
+  transform: translateY(-200px);
+}
+.appointment-info{
+  margin-top : 50px;
+  z-index: 1;
+}
+.appointment-info h5{
+  color: #1CC7C1;
+  font-size: 25px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 40px;
+}
+.appointment-info h2{
+  font-size: 60px;
+  color: aliceblue;
+  margin-bottom: 50px;
+}
+.appointment-info p{
+  font-size: 25px;
+  color: aliceblue;
+}
+.appointment-info button{
+  margin-top: 50px;
+  font-size: 25px;
+  color: aliceblue;
+  background-image: linear-gradient(to right top, #11d0da, #0ad0de, #07d0e2, #09cfe6, #0fcfea);
+  padding: 15px 40px;
+}

@@ -1,0 +1,19 @@
+.infoClass h1{
+  font-size: 50px;
+  font-weight: 600;
+  padding-bottom: 20px;
+}
+.infoClass p{
+  color:grey;
+  font-size: 18px;
+  text-align: justify;
+  padding-right: 50px;
+}
+.paymentButn{
+  background-image: linear-gradient(to right top, #11d0da, #0ad0de, #07d0e2, #09cfe6, #0fcfea);
+  color: #fff;
+  padding: 15px;
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 50px;
+}

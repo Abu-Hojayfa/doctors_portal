@@ -1,0 +1,44 @@
+.contact-container{
+  position: relative;
+}
+.contact-container::before , .contact-container::after{
+  position: absolute;
+  top: 0;
+  content: "";
+  height: 100%;
+  width: 100%;
+}
+.contact-container::before{
+  background-color: #3A4256;
+  opacity: 0.9;
+  z-index: -1;
+}
+.contact-container::after{
+  background-image: url('../../../images/appBg.png');
+  background-position: center;
+  z-index: -2;
+}
+.contact-head , .contactForm {
+  z-index: 10;
+}
+.contactForm input , .contactForm textarea{
+  font-size: 20px;
+}
+.contact-head h4{
+  color: #1CC7C1;
+  font-size: 30px;
+  padding-top: 80px;
+  margin-bottom: 30px;
+}
+.contact-head h2{
+  font-size: 50px;
+  color:aliceblue;
+}
+.contact-submit{
+  margin-top: 50px;
+  font-size: 25px;
+  font-weight: 600;
+  color: aliceblue;
+  background-image: linear-gradient(to right top, #11d0da, #0ad0de, #07d0e2, #09cfe6, #0fcfea);
+  padding: 10px 50px;
+}

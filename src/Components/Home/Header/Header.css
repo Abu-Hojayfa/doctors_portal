@@ -1,0 +1,24 @@
+.header-container {
+  height: 880px;
+  position:relative;
+}
+.header-container::after, .header-container::before {
+  height: 880px;
+  content:' ';
+  position: absolute;
+  top: 0; 
+  z-index: -2;
+}
+.header-container::after{
+  width: 23.5%;
+  right: 0;
+  background-color: #3A4256;
+}
+.header-container::before {
+  left: 0;
+  width:76.5%;
+  background-image: url('../../../images/Mask Group 2.png');
+  background-repeat: no-repeat;
+  background-size:cover;
+  background-position: center;
+}

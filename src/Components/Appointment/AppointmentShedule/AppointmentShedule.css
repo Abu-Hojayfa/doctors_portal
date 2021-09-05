@@ -1,0 +1,39 @@
+.schedul-container{
+  width: 85%;
+  margin: auto;
+}
+.schedul-container h2{
+  color: #1CC7C1;
+  font-size: 40px;
+  margin: 80px 0 40px 0;
+}
+.appSchedule{
+  border: 1px solid rgb(194, 194, 194);
+  padding: 40px;
+  border-radius: 15px;
+  margin: 30px 0;
+}
+.appSchedule h3,
+.patient-quary h3{
+  color: #1CC7C1;
+  letter-spacing: 1px;
+  font-weight: 600;
+  font-size: 33px;
+}
+.appSchedule button,
+.patient-quary button{
+  background-image: linear-gradient(to right top, #11d0da, #0ad0de, #07d0e2, #09cfe6, #0fcfea);
+  color: #fff;
+  font-size: 20px;
+  font-weight: 600;
+  margin-top: 10px;
+}
+.appSchedule button{
+  padding: 15px;
+}
+.patient-quary button{
+  padding: 5px 45px;
+}
+.appSchedule h4{
+  font-size: 22px;
+}
