@@ -7,7 +7,7 @@ import Exceptional from './Exceptional';
 
 const Services = () => {
   return (
-    <section className="mt-5 pt-5 serviceClass">
+    <section id='servicesPart' className="mt-5 pt-5 serviceClass">
       <div className="text-center pt-5 mt-5 serviceIntro">
         <h5>OUR SERVICES</h5>
         <h2>Services We Provide</h2>

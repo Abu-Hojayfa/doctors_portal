@@ -19,7 +19,7 @@ const Appointment = () => {
           <h5>APPOINTMENT</h5>
           <h2>Make an appointment <br/> Today</h2>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi non illum natus tenetur ratione possimus? Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos dolor labore exercitationem in voluptatem earum.</p>
-          <button onClick={makeAppointment} className="btn">Learn More</button>
+          <button onClick={makeAppointment} className="btn">Make an Appointment</button>
         </div>
       </div>
     </section>

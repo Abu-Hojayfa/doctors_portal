@@ -5,7 +5,7 @@ import moment from 'moment';
 
 const Blogs = () => {
   return (
-    <section className='blog-container m-auto mb-5'>
+    <section id="blog" className='blog-container m-auto mb-5'>
       <h5 className="text-center">OUR BLOGS</h5>
       <h2 className="text-center">From Our Blog News</h2>
       <div className="row m-0">
@@ -15,7 +15,7 @@ const Blogs = () => {
               <img src={herry} alt="" />
               <div style={{paddingLeft:'40px'}}>
                 <h4>Dr. Caudi</h4>
-                <h5>{moment().format("dddd, MMMM-D-YYYY")}</h5>
+                <h5>{moment().format("dddd, MMMM DD,YYYY")}</h5>
               </div>
             </div>
 
@@ -33,7 +33,7 @@ const Blogs = () => {
               <img src={herry} alt="" />
               <div style={{paddingLeft:'40px'}}>
                 <h4>Dr. Caudi</h4>
-                <h5>{moment().format("dddd, MMMM-D-YYYY")}</h5>
+                <h5>{moment().format("dddd, MMMM DD,YYYY")}</h5>
               </div>
             </div>
 
@@ -51,7 +51,7 @@ const Blogs = () => {
               <img src={herry} alt="" />
               <div style={{paddingLeft:'40px'}}>
                 <h4>Dr. Caudi</h4>
-                <h5>{moment().format("dddd, MMMM-D-YYYY")}</h5>
+                <h5>{moment().format("dddd, MMMM DD,YYYY")}</h5>
               </div>
             </div>
 

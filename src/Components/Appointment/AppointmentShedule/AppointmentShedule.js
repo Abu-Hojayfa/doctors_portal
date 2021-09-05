@@ -14,7 +14,7 @@ const AppointmentShedule = ({value}) => {
 
   
   return (
-    <section className='schedul-container'>
+    <section className='schedul-container mb-5'>
       <h2 className='text-center'>Available Appointments on {value.toDateString()}</h2>
       <div className="row m-0">
         {

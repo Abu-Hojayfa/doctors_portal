@@ -41,12 +41,6 @@
 .blogs:hover h4{
   color: black;
 }
-
-.blogs:hover::after{
-  position: absolute;
-  content: '→';
-  font-size: 80px;
-  color: rgb(255, 255, 255);
-  left: 30px;
-  bottom: -30px;
+.blogs:hover p{
+  color: rgb(255, 255, 255) !important;
 }

@@ -6,7 +6,7 @@ import BusinessInfo from '../BusinessInfo/BusinessInfo';
 
 const Header = () => {
   return (
-    <div className='header-container'>
+    <div id="top" className='header-container'>
       <Navbar />
       <HeaderMain />
       <BusinessInfo />

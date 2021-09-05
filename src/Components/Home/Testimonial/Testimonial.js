@@ -6,7 +6,7 @@ import watson from '../../../images/watson.png';
 
 const Testimonial = () => {
   return (
-    <section className="testimonial-container mb-5">
+    <section id="reviews" className="testimonial-container mb-5">
       <div className="testimonialInfo">
         <h5>TESTIMONIAL</h5>
         <h2>What's Our Patients <br /> Says</h2>

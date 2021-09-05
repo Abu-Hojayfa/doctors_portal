@@ -6,7 +6,10 @@ import { faGoogle, faFacebook, faTwitter } from '@fortawesome/free-brands-svg-ic
 const Footer = () => {
   return (
     <section className='footer-container'>
-      <div style={{width:'88%'}} className="row pt-5 m-0 m-auto">
+      <div className="backTop">
+        <a href="#top">Go To Top</a>
+      </div>
+      <div style={{width:'88%'}} className="row pt-3 m-0 m-auto">
         <div className="col-md-3">
           <div className="huda mt-5 pt-5">
             <p>Emergency Dental Care</p>

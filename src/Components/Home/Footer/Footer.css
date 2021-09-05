@@ -28,3 +28,17 @@
   background-image: linear-gradient(to right top, #11d0da, #0ad0de, #07d0e2, #09cfe6, #0fcfea);
   padding: 15px 30px;
 }
+
+.backTop{
+  text-align: center;
+  background-image: linear-gradient(to right top, #11d0da, #0ad0de, #07d0e2, #09cfe6, #0fcfea);
+  padding: 8px 0;
+  transform: translateY(-50px);
+}
+
+.backTop a{
+  text-decoration: none;
+  color: aliceblue;
+  font-size: 20px;
+  font-weight: 700;
+}
