@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Modal from "react-modal";
 import { useForm } from "react-hook-form";
+import swal from "sweetalert";
 import "./AppoinmetQuary.css";
 
 const customStyles = {
@@ -49,7 +50,12 @@ const AppointmentQuary = ({ trtment, time, openTime, closeTime }) => {
     })
       .then((res) => res.json())
       .then((data) => {
-        alert("Your Booking is Complete");
+        swal({
+          title: "Wish you best luck",
+          text: "Your appoint is successful!",
+          icon: "success",
+          button: "Okay",
+        });
         setIsOpen(false);
       });
   };
