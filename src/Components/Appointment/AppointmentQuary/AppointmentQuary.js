@@ -42,6 +42,7 @@ const AppointmentQuary = ({ trtment, time, openTime, closeTime }) => {
     info.time = time.toDateString();
     info.openTime = openTime;
     info.closeTime = closeTime;
+    info.action = "pending";
 
     fetch("http://localhost:5000/bookticket", {
       method: "POST",

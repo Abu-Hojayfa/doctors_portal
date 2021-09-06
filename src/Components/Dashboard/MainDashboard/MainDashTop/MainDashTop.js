@@ -24,7 +24,7 @@ const MainDashTop = ({ allAppoints }) => {
   }
 
   return (
-    <div className="mainDashTopContainer mb-5">
+    <div className="mainDashTopContainer mb-5 mt-3">
       <h3 className="pt-4 pb-3">Dashboard</h3>
       <div className="d-flex justify-content-between">
         <div className="maindashNumTop">

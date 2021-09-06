@@ -14,6 +14,7 @@
 
 .containerOfAllAppoint h5:nth-child(1) {
   color: #05bdd1;
+  font-size: 22px;
 }
 
 .borderless th {

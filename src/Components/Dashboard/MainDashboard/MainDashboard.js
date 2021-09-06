@@ -1,13 +1,18 @@
 import React, { useEffect, useState } from "react";
 import Sidebar from "../Sidebar/Sidebar";
 import MainDashTop from "./MainDashTop/MainDashTop";
+import MainDashBody from "./MianDashBody/MainDashBody";
 
 const MainDashboard = () => {
   const [allAppoints, setAllAppoints] = useState([]);
+  const [loader, setLoader] = useState(true);
   useEffect(() => {
     fetch("http://localhost:5000/allappoints")
       .then((res) => res.json())
-      .then((data) => setAllAppoints(data));
+      .then((data) => {
+        setAllAppoints(data);
+        setLoader(false);
+      });
   }, []);
   return (
     <div style={{ backgroundColor: "#e5fcff" }}>
@@ -17,6 +22,7 @@ const MainDashboard = () => {
         </div>
         <div className="col-md-9 ps-4">
           <MainDashTop allAppoints={allAppoints} />
+          <MainDashBody allAppoints={allAppoints} loader={loader} />
         </div>
       </div>
     </div>
