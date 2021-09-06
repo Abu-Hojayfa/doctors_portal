@@ -54,7 +54,7 @@ const AppointmentTable = ({ value }) => {
                   <tr key={data._id}>
                     <td>{data.name}</td>
                     <td>Dr. {data.doctor}</td>
-                    <td>{data.number}</td>
+                    <td>+{data.number}</td>
                     <td>{data.openTime}</td>
                   </tr>
                 ))}

@@ -1,0 +1,36 @@
+.mainDashTopContainer h3{
+  font-weight: 700;
+}
+
+.maindashNumTop{
+  padding: 15px 50px;
+  border-radius: 10px;
+  width: 23%;
+  color: #ffffff;
+  font-family: sans-serif;
+}
+
+.maindashNumTop:nth-child(1){
+  background-color: #F1536E;
+}
+.maindashNumTop:nth-child(2){
+  background-color: #3DA5F4;
+}
+.maindashNumTop:nth-child(3){
+  background-color: #00C689;
+}
+.maindashNumTop:nth-child(4){
+  background-color: #fd9e06dc;
+}
+
+.maindashNumTop h5{
+  font-size: 4rem;
+  font-weight: 700;
+  margin-right: 25px;
+  margin-top: 5px;
+}
+
+.maindashNumTop p{
+  margin: 0;
+  font-size: 20px;
+}
