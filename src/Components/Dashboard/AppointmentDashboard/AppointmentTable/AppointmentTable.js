@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import "./AppointmentTable.css";
 import moment from "moment";
-import Loader  from '../../../../images/loader.gif';
+import Loader from "../../../../images/loader.gif";
+import swal from "sweetalert";
 
 const AppointmentTable = ({ value }) => {
   const selectedDate = value.toDateString();
@@ -27,6 +28,52 @@ const AppointmentTable = ({ value }) => {
       });
   }, [dateValue]);
 
+  const alertToChange = (data) => {
+    swal({
+      title: 'Are you Sure?',
+      text: `Changing Action for ${data.name} !`,
+      content: "input",
+      button: {
+        text: "Change!",
+        closeModal: false,
+      },
+    })
+      .then((name) => {
+        if (!name) throw null;
+
+        return fetch(
+          `https://itunes.apple.com/search?term=${name}&entity=movie`
+        );
+      })
+      .then((results) => {
+        return results.json();
+      })
+      .then((json) => {
+        const movie = json.results[0];
+
+        if (!movie) {
+          return swal("No movie was found!");
+        }
+
+        const name = movie.trackName;
+        const imageURL = movie.artworkUrl100;
+
+        swal({
+          title: "Top result:",
+          text: name,
+          icon: imageURL,
+        });
+      })
+      .catch((err) => {
+        if (err) {
+          swal("Oh noes!", "The AJAX request failed!", "error");
+        } else {
+          swal.stopLoading();
+          swal.close();
+        }
+      });
+  };
+
   return (
     <div className="containerOfAllAppoint">
       <div className="table-info d-flex justify-content-between">
@@ -36,7 +83,12 @@ const AppointmentTable = ({ value }) => {
         </h5>
       </div>
       {loader ? (
-        <img className="img-fluid" style={{ marginLeft: "20vh" }} src={Loader} alt=""  />
+        <img
+          className="img-fluid"
+          style={{ marginLeft: "20vh" }}
+          src={Loader}
+          alt=""
+        />
       ) : (
         <>
           {patientInfo.length > 0 ? (
@@ -46,7 +98,7 @@ const AppointmentTable = ({ value }) => {
                   <th scope="col">Name</th>
                   <th scope="col">Doctor</th>
                   <th scope="col">Phone Number</th>
-                  <th scope="col">Schedule Time</th>
+                  <th scope="col">Action</th>
                 </tr>
               </thead>
               <tbody>
@@ -55,7 +107,7 @@ const AppointmentTable = ({ value }) => {
                     <td>{data.name}</td>
                     <td>Dr. {data.doctor}</td>
                     <td>+{data.number}</td>
-                    <td>{data.openTime}</td>
+                    <td onClick={(e)=>alertToChange(data)}>{data.action}</td>
                   </tr>
                 ))}
               </tbody>
