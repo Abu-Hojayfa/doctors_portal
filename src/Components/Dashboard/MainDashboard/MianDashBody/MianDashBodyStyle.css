@@ -20,6 +20,10 @@
   padding-left: 1.6vw;
 }
 
+.MainAppDashBody .actionButnOfAppt{
+  cursor: no-drop;
+}
+
 .mainDashBodyContentArea {
   overflow-y: scroll;
   scroll-behavior: smooth;
