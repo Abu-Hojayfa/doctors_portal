@@ -52,7 +52,7 @@ const AppointmentQuary = ({ trtment, time, openTime, closeTime }) => {
       .then((res) => res.json())
       .then((data) => {
         Swal.fire({
-          position: "top-end",
+          position: "center",
           title: "Wish you best luck",
           text: "Your appoint is successful!",
           icon: "success",

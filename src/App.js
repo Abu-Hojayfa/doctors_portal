@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 import Appointment from "./Components/Appointment/Appointment/Appointment";
 import MainDashboard from "./Components/Dashboard/MainDashboard/MainDashboard";
+import Patients from "./Components/Dashboard/Patients/Patients";
 import AppointmentDashboard from "./Components/Dashboard/AppointmentDashboard/AppointmentDashboard";
 import Home from "./Components/Home/Home/Home";
 
@@ -28,6 +29,9 @@ function App() {
         </Route>
         <Route path="/allappointments">
           <AppointmentDashboard />
+        </Route>
+        <Route path="/allpatients">
+          <Patients />
         </Route>
       </Switch>
     </Router>

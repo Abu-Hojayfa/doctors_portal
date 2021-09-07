@@ -93,51 +93,54 @@ const AppointmentTable = ({ value }) => {
           {moment(selectedDate).format("DD, MMMM YYYY")}
         </h5>
       </div>
-      {loader ? (
-        <img
-          className="img-fluid"
-          style={{ marginLeft: "20vh" }}
-          src={Loader}
-          alt=""
-        />
-      ) : (
-        <>
-          {patientInfo.length > 0 ? (
-            <table className="table borderless">
-              <thead>
-                <tr>
-                  <th scope="col">Name</th>
-                  <th scope="col">Doctor</th>
-                  <th scope="col">Phone Number</th>
-                  <th scope="col">Action</th>
-                </tr>
-              </thead>
-              <tbody>
-                {patientInfo.map((data) => (
-                  <tr key={data._id}>
-                    <td>{data.name}</td>
-                    <td>Dr. {data.doctor}</td>
-                    <td>+{data.number}</td>
-                    <td onClick={(e) => alertToChange(data)}>
-                      <p
-                        className={`actionButnOfAppt ${
-                          data.action === "visited" && "bg-success"
-                        } ${data.action === "cancelled" && "bg-danger"}`}
-                      >
-                        {data.action}
-                      </p>
-                    </td>
+      <div className="mainDashBodyContentArea" style={{ maxHeight: "74vh" }}>
+        {loader ? (
+          <img
+            className="img-fluid"
+            style={{ marginLeft: "20vh" }}
+            src={Loader}
+            alt=""
+          />
+        ) : (
+          <>
+            {patientInfo.length > 0 ? (
+              <table className="table borderless">
+                <thead>
+                  <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Doctor</th>
+                    <th scope="col">Phone Number</th>
+                    <th scope="col">Action</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
-          ) : (
-            <h3 className="text-center pt-5 pb-5 text-danger">
-              No Appointments on {moment(selectedDate).format("DD, MMMM YYYY")}{" "}
-            </h3>
-          )}
-        </>
-      )}
+                </thead>
+                <tbody>
+                  {patientInfo.map((data) => (
+                    <tr key={data._id}>
+                      <td>{data.name}</td>
+                      <td>Dr. {data.doctor}</td>
+                      <td>+{data.number}</td>
+                      <td onClick={(e) => alertToChange(data)}>
+                        <p
+                          className={`actionButnOfAppt ${
+                            data.action === "visited" && "bg-success"
+                          } ${data.action === "cancelled" && "bg-danger"}`}
+                        >
+                          {data.action}
+                        </p>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            ) : (
+              <h3 className="text-center pt-5 pb-5 text-danger">
+                No Appointments on{" "}
+                {moment(selectedDate).format("DD, MMMM YYYY")}{" "}
+              </h3>
+            )}
+          </>
+        )}
+      </div>
     </div>
   );
 };
