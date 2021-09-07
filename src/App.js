@@ -9,6 +9,7 @@ import MainDashboard from "./Components/Dashboard/MainDashboard/MainDashboard";
 import Patients from "./Components/Dashboard/Patients/Patients";
 import AppointmentDashboard from "./Components/Dashboard/AppointmentDashboard/AppointmentDashboard";
 import Home from "./Components/Home/Home/Home";
+import Login from "./Components/Login/Login";
 
 
 function App() {
@@ -32,6 +33,9 @@ function App() {
         </Route>
         <Route path="/allpatients">
           <Patients />
+        </Route>
+        <Route path="/login">
+          <Login />
         </Route>
       </Switch>
     </Router>

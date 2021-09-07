@@ -40,6 +40,7 @@ const Sidebar = () => {
         />
         Settings
       </p>
+      
       <p onClick={(e) => goToPage("home")}>
         <FontAwesomeIcon style={{ marginRight: "8px" }} icon={faBackspace} />
         Go Back

@@ -1,0 +1,7 @@
+.loginContainer{
+  overflow: hidden;
+}
+.imageOfLogin{
+  position: absolute;
+  bottom: 0;
+}
