@@ -3,10 +3,11 @@ import "./Sidebar.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faBars,
-  faNotesMedical,
+  faCogs,
   faUserFriends,
   faCalendarAlt,
   faBackspace,
+  faSignOutAlt
 } from "@fortawesome/free-solid-svg-icons";
 import { useHistory } from "react-router";
 
@@ -16,6 +17,8 @@ const Sidebar = () => {
   const goToPage = (e) => {
     history.push(`/${e}`);
   };
+
+  const logOut = (e) => {};
   return (
     <div className="dashboard-container">
       <p onClick={(e) => goToPage("dashboard")}>
@@ -33,13 +36,18 @@ const Sidebar = () => {
       <p onClick={(e) => goToPage("prescription")}>
         <FontAwesomeIcon
           style={{ marginRight: "10px" }}
-          icon={faNotesMedical}
+          icon={faCogs}
         />
-        Prescription
+        Settings
       </p>
       <p onClick={(e) => goToPage("home")}>
-        <FontAwesomeIcon style={{ marginRight: "5px" }} icon={faBackspace} />
+        <FontAwesomeIcon style={{ marginRight: "8px" }} icon={faBackspace} />
         Go Back
+      </p>
+
+      <p style={{ marginTop: "50vh" }} onClick={(e) => logOut()}>
+        <FontAwesomeIcon style={{ marginRight: "5px" }} icon={faSignOutAlt} />
+        Log Out
       </p>
     </div>
   );
