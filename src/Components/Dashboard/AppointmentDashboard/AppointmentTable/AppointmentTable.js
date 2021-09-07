@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./AppointmentTable.css";
 import moment from "moment";
 import Loader from "../../../../images/loader.gif";
-import swal from "sweetalert";
+import Swal from "sweetalert2";
 
 const AppointmentTable = ({ value }) => {
   const selectedDate = value.toDateString();
@@ -10,6 +10,7 @@ const AppointmentTable = ({ value }) => {
   const [dateValue, setDateValue] = useState({});
   const [patientInfo, setPatientInfo] = useState([]);
   const [loader, setLoader] = useState(true);
+  const [updated, setUpdated] = useState(false);
 
   if (selectedDate !== dateValue.date) {
     setDateValue({ date: selectedDate });
@@ -26,52 +27,62 @@ const AppointmentTable = ({ value }) => {
         setPatientInfo(data);
         setLoader(false);
       });
-  }, [dateValue]);
+  }, [dateValue, updated]);
 
   const alertToChange = (data) => {
-    swal({
-      title: 'Are you Sure?',
-      text: `Changing Action for ${data.name} !`,
-      content: "input",
-      button: {
-        text: "Change!",
-        closeModal: false,
+    Swal.fire({
+      title: "Select field validation",
+      text: "Modal with a custom image.",
+      icon: "warning",
+      input: "select",
+      inputOptions: {
+        pending: "pending",
+        visited: "visited",
+        cancelled: "cancelled",
       },
-    })
-      .then((name) => {
-        if (!name) throw null;
-
-        return fetch(
-          `https://itunes.apple.com/search?term=${name}&entity=movie`
-        );
-      })
-      .then((results) => {
-        return results.json();
-      })
-      .then((json) => {
-        const movie = json.results[0];
-
-        if (!movie) {
-          return swal("No movie was found!");
-        }
-
-        const name = movie.trackName;
-        const imageURL = movie.artworkUrl100;
-
-        swal({
-          title: "Top result:",
-          text: name,
-          icon: imageURL,
+      inputPlaceholder: "Select Actions",
+      showCancelButton: true,
+      inputValidator: (value) => {
+        return new Promise((resolve) => {
+          if (
+            value === "pending" ||
+            value === "cancelled" ||
+            value === "visited"
+          ) {
+            resolve(
+              fetch("http://localhost:5000/changeaction", {
+                method: "POST",
+                headers: { "content-type": "application/json" },
+                body: JSON.stringify({ id: data._id, action: value }),
+              }).then((response) => {
+                setUpdated(!updated);
+                if (response.status === 200) {
+                  Swal.fire({
+                    position: "center",
+                    title: "Action has been changed!",
+                    text: `Action is changed to ${value} for ${data.name}`,
+                    icon: "success",
+                    showConfirmButton: false,
+                    timer: 2000,
+                  });
+                } else {
+                  Swal.fire({
+                    position: "center",
+                    title: "Action cannot be changed right now!",
+                    text: `Action isn't changed to ${value} for ${data.name}`,
+                    icon: "error",
+                    showConfirmButton: false,
+                    timer: 2000,
+                  });
+                }
+              })
+            );
+          } else {
+            resolve("You need to select an Action :)");
+          }
         });
-      })
-      .catch((err) => {
-        if (err) {
-          swal("Oh noes!", "The AJAX request failed!", "error");
-        } else {
-          swal.stopLoading();
-          swal.close();
-        }
-      });
+      },
+    });
   };
 
   return (
@@ -107,7 +118,15 @@ const AppointmentTable = ({ value }) => {
                     <td>{data.name}</td>
                     <td>Dr. {data.doctor}</td>
                     <td>+{data.number}</td>
-                    <td onClick={(e)=>alertToChange(data)}>{data.action}</td>
+                    <td onClick={(e) => alertToChange(data)}>
+                      <p
+                        className={`actionButnOfAppt ${
+                          data.action === "visited" && "bg-success"
+                        } ${data.action === "cancelled" && "bg-danger"}`}
+                      >
+                        {data.action}
+                      </p>
+                    </td>
                   </tr>
                 ))}
               </tbody>

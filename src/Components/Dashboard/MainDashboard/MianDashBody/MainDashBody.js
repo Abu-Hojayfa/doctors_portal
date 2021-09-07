@@ -39,7 +39,13 @@ const MainDashBody = ({ allAppoints, loader }) => {
                       <td>{data.name}</td>
                       <td>Dr. {data.doctor}</td>
                       <td>+{data.number}</td>
-                      <td>{data.action}</td>
+                      <td><p
+                        className={`actionButnOfAppt ${
+                          data.action === "visited" && "bg-success"
+                        } ${data.action === "cancelled" && "bg-danger"}`}
+                      >
+                        {data.action}
+                      </p></td>
                     </tr>
                   ))}
                 </tbody>

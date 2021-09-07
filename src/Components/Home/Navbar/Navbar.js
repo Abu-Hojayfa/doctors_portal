@@ -40,22 +40,29 @@ const Navbar = () => {
               </Link>
             </li>
             <li className="nav-item">
-              <a href="/home#servicesPart" className="nav-link ms-5 text-secondary">
+              <Link to="/appointment" className="nav-link ms-5 text-secondary">
+                Appointments
+              </Link>
+            </li>
+            <li className="nav-item">
+              <a
+                href="/home#servicesPart"
+                className={`nav-link ms-5 ${textColor}`}
+              >
                 Services
               </a>
             </li>
-            <li className="nav-item">
-              <a href="/home#reviews" className={`nav-link ms-5 ${textColor}`}>
-                Reviews
-              </a>
-            </li>
+
             <li className="nav-item">
               <a href="/home#blog" className={`nav-link ms-5 ${textColor}`}>
                 Blog
               </a>
             </li>
             <li className="nav-item">
-              <a href="/home#contactForm" className={`nav-link ms-5 ${textColor}`}>
+              <a
+                href="/home#contactForm"
+                className={`nav-link ms-5 ${textColor}`}
+              >
                 Contact Us
               </a>
             </li>
