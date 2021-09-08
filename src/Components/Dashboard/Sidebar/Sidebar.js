@@ -18,7 +18,10 @@ const Sidebar = () => {
     history.push(`/${e}`);
   };
 
-  const logOut = (e) => {};
+  const logOut = (e) => {
+    sessionStorage.clear();
+    history.push('/');
+  };
   return (
     <div className="dashboard-container">
       <p onClick={(e) => goToPage("dashboard")}>

@@ -1,16 +1,12 @@
 import React from "react";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route
-} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Appointment from "./Components/Appointment/Appointment/Appointment";
 import MainDashboard from "./Components/Dashboard/MainDashboard/MainDashboard";
 import Patients from "./Components/Dashboard/Patients/Patients";
 import AppointmentDashboard from "./Components/Dashboard/AppointmentDashboard/AppointmentDashboard";
 import Home from "./Components/Home/Home/Home";
 import Login from "./Components/Login/Login";
-
+import PrivateRoute from "./Components/Login/LoginEssential/PrivateRoute";
 
 function App() {
   return (
@@ -22,18 +18,18 @@ function App() {
         <Route path="/home">
           <Home />
         </Route>
-        <Route path="/appointment">
+        <PrivateRoute path="/appointment">
           <Appointment />
-        </Route>
-        <Route path="/dashboard">
+        </PrivateRoute>
+        <PrivateRoute path="/dashboard">
           <MainDashboard />
-        </Route>
-        <Route path="/allappointments">
+        </PrivateRoute>
+        <PrivateRoute path="/allappointments">
           <AppointmentDashboard />
-        </Route>
-        <Route path="/allpatients">
+        </PrivateRoute>
+        <PrivateRoute path="/allpatients">
           <Patients />
-        </Route>
+        </PrivateRoute>
         <Route path="/login">
           <Login />
         </Route>

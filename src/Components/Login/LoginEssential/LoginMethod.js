@@ -6,10 +6,12 @@ import {
   signInWithEmailAndPassword,
 } from "firebase/auth";
 import Swal from "sweetalert2";
+import { useHistory } from "react-router";
 
 if (!initializeApp(firebaseConfig).length) {
   initializeApp(firebaseConfig);
 }
+
 
 const success = () => {
   const Toast = Swal.mixin({
@@ -50,7 +52,7 @@ export const createUserWithMail = ({
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
-        console.log(user);
+        sessionStorage.setItem("email", user.email);
         success();
       })
       .catch((error) => {
@@ -69,9 +71,9 @@ export const signInWithMail = ({ email, password }) => {
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
-        console.log(user);
-
+        sessionStorage.setItem("email", user.email);
         success();
+        
       })
       .catch((error) => {
         const errorCode = error.code;

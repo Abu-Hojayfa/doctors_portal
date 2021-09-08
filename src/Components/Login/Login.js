@@ -14,6 +14,10 @@ const Login = () => {
   const [isLogin, setIsLogin] = useState(false);
   const [userInfo, setUserInfo] = useState([]);
 
+  const signInWithMailAndRederict = () => {
+    signInWithMail(userInfo);
+  };
+
   return (
     <div className="d-flex loginContainer">
       <div className="w-50">
@@ -113,7 +117,7 @@ const Login = () => {
                   onClick={(e) =>
                     isLogin
                       ? createUserWithMail(userInfo)
-                      : signInWithMail(userInfo)
+                      : signInWithMailAndRederict()
                   }
                 >
                   {isLogin ? "Create" : "Sign in"}
