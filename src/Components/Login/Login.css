@@ -4,4 +4,40 @@
 .imageOfLogin{
   position: absolute;
   bottom: 0;
+  right: 5%;
+}
+.formOfSignUpIn {
+  position: absolute;
+  top: 20%;
+  left: 10%;
+  border: 1px solid transparent;
+  width: 35vw;
+  border-radius: 10px;
+  padding: 5vh 4vw;
+  color: #3DB2FF;
+  box-shadow: -6px -6px 15px rgba(143, 143, 143, 0.5),
+    6px 6px 12px #ffffff00;
+}
+
+.loginContainer label {
+  font-size: 20px;
+  padding-bottom: 5px;
+  position: relative;
+
+}
+
+.toggle-btn-for-pass{
+  position: absolute;
+  top: 128%;
+  right: -510%;
+  cursor: pointer;
+  color: #3DB2FF;
+  font-size: 18px;
+}
+
+.submitingButn{
+  background-image: linear-gradient(to right top, #11d0da, #0ad0de, #07d0e2, #09cfe6, #0fcfea);
+  color: #fff;
+  padding: 8px 4vw;
+  font-size: 20px;
 }
