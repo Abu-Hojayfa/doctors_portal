@@ -4,17 +4,28 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import LoginImg from "../../images/Group 140.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
+import {
+  signInWithMail,
+  createUserWithMail,
+} from "./LoginEssential/LoginMethod";
 
 const Login = () => {
   const [seePass, setSeePass] = useState(false);
   const [isLogin, setIsLogin] = useState(true);
+  const [userInfo, setUserInfo] = useState([]);
+
   return (
     <div className="d-flex loginContainer">
       <div className="w-50">
         <div className="formOfSignUpIn">
-          <h2>Login</h2>
+          <h2>{isLogin ? "Create Account" : "Login"}</h2>
           <Formik
-            initialValues={{ email: "", password: "" }}
+            initialValues={{
+              email: "",
+              password: "",
+              firstName: "",
+              lastName: "",
+            }}
             validate={(values) => {
               const errors = {};
               if (!values.email) {
@@ -31,19 +42,44 @@ const Login = () => {
             }}
             onSubmit={(values, { setSubmitting }) => {
               setTimeout(() => {
-                alert(JSON.stringify(values, null, 2));
+                setUserInfo(values);
                 setSubmitting(false);
               }, 400);
             }}
           >
             {({ isSubmitting }) => (
               <Form className="pt-5">
+                {isLogin && (
+                  <div className="row mb-4">
+                    <div className="col-md-6">
+                      <label className="text-dark">First Name</label>
+                      <Field
+                        className="form-control"
+                        type="text"
+                        name="firstName"
+                        placeholder="First Name"
+                        required
+                      />
+                    </div>
+                    <div className="col-md-6">
+                      <label className="text-dark">Last Name</label>
+                      <Field
+                        className="form-control"
+                        type="text"
+                        name="lastName"
+                        placeholder="Last Name"
+                        required
+                      />
+                    </div>
+                  </div>
+                )}
                 <label className="text-dark">Email</label>
                 <Field
                   className="form-control"
                   type="email"
                   name="email"
                   placeholder="Enter Your Email Address"
+                  required
                 />
                 <ErrorMessage
                   className="text-danger"
@@ -63,6 +99,7 @@ const Login = () => {
                   type={seePass ? "text" : "password"}
                   name="password"
                   placeholder="Enter Your Password"
+                  required
                 />{" "}
                 <ErrorMessage
                   className="text-danger"
@@ -73,20 +110,28 @@ const Login = () => {
                   className="btn submitingButn mt-4"
                   type="submit"
                   disabled={isSubmitting}
+                  onClick={(e) =>
+                    isLogin
+                      ? createUserWithMail(userInfo)
+                      : signInWithMail(userInfo)
+                  }
                 >
-                  Login
+                  {isLogin ? "Create" : "Sign in"}
                 </button>
               </Form>
             )}
           </Formik>
           <p className="text-dark pt-4">
-            {isLogin ? "New User" : "Already have an Account"}?
+            {isLogin ? "Already have an Account" : "New User"}?
             <span
-              onClick={(e) => setIsLogin(!isLogin)}
+              onClick={(e) => {
+                setIsLogin(!isLogin);
+                setSeePass(false);
+              }}
               style={{ color: "#008fee", cursor: "pointer", fontSize: "18px" }}
             >
               {" "}
-              {isLogin ? "Create Account" : "Login"}
+              {isLogin ? "Login" : "Create Account"}
             </span>
           </p>
         </div>
