@@ -11,7 +11,7 @@ import {
 
 const Login = () => {
   const [seePass, setSeePass] = useState(false);
-  const [isLogin, setIsLogin] = useState(true);
+  const [isLogin, setIsLogin] = useState(false);
   const [userInfo, setUserInfo] = useState([]);
 
   return (

@@ -38,36 +38,46 @@ const wrong = (errorCode, errorMessage) => {
   });
 };
 
-export const createUserWithMail = ({ email, password }) => {
-  console.log(email, password);
-  const auth = getAuth();
-  createUserWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-      // Signed in
-      const user = userCredential.user;
-      console.log(user);
-      success();
-    })
-    .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      wrong(errorCode, errorMessage);
-    });
+export const createUserWithMail = ({
+  firstName,
+  lastName,
+  email,
+  password,
+}) => {
+  if (email && password && firstName && lastName) {
+    const auth = getAuth();
+    createUserWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        // Signed in
+        const user = userCredential.user;
+        console.log(user);
+        success();
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+
+        wrong(errorCode, errorMessage);
+      });
+  }
 };
 
 export const signInWithMail = ({ email, password }) => {
-  const auth = getAuth();
-  signInWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-      // Signed in
-      const user = userCredential.user;
-      console.log(user);
+  if (email && password) {
+    const auth = getAuth();
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        // Signed in
+        const user = userCredential.user;
+        console.log(user);
 
-      success();
-    })
-    .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      wrong(errorCode, errorMessage);
-    });
+        success();
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+
+        wrong(errorCode, errorMessage);
+      });
+  }
 };
