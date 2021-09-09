@@ -1,10 +1,13 @@
 import React, { useState } from "react";
+import Swal from "sweetalert2";
 import Sidebar from "../Sidebar/Sidebar";
+import DeleteAndShowAdmin from "./DeleteAndShowAdmin";
 import "./Settings.css";
 
 const Settings = () => {
   const [emailCheck, setEmailCheck] = useState();
   const [emailData, setEmailData] = useState();
+  const [allAdminReloader, setAllAdminReloader] = useState(false);
 
   const onBlurHandle = (e) => {
     const email = e.target.value;
@@ -13,13 +16,29 @@ const Settings = () => {
         String(email).toLowerCase()
       );
     setEmailCheck(emailChecked);
-    if (emailCheck){
+    if (emailCheck) {
       setEmailData(email);
     }
   };
   const addANewAdmin = () => {
-    console.log(emailCheck);
-    console.log(emailData);
+    fetch("http://localhost:5000/addanadmin", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email: emailData }),
+    }).then((res) => {
+      res.json();
+      console.log(res);
+      if (res.status === 200) {
+        Swal.fire({
+          position: "center",
+          title: "A New Admin is Added",
+          icon: "success",
+          showConfirmButton: false,
+          timer: 2000,
+        });
+        setAllAdminReloader(!allAdminReloader);
+      }
+    });
   };
   return (
     <div style={{ backgroundColor: "#e5fcff" }}>
@@ -39,9 +58,16 @@ const Settings = () => {
                   placeholder="Add a new Admin Email"
                 />
                 <p className="text-danger ">
-                  {emailCheck === false ? "Please Input a valid Mail and try again." : ""}{" "}
+                  {emailCheck === false
+                    ? "Please Input a valid Mail and try again."
+                    : ""}{" "}
                 </p>
                 <button
+                  data-toggle="tooltip"
+                  data-placement="right"
+                  title={`${
+                    !emailCheck ? "Input a valid Email" : "Click to Add"
+                  }`}
                   onClick={(e) => {
                     emailCheck && addANewAdmin();
                   }}
@@ -54,7 +80,12 @@ const Settings = () => {
               </div>
             </div>
             <div className="col-md-6">
-              <div className="allAdmin"></div>
+              <div className="allAdmin">
+                <DeleteAndShowAdmin
+                  setAllAdminReloader={setAllAdminReloader}
+                  allAdminReloader={allAdminReloader}
+                />
+              </div>
             </div>
           </div>
         </div>

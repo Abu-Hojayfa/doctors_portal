@@ -8,11 +8,28 @@
     6px 6px 12px #ffffff00;
 }
 
-.formOfAddAdmin h3 {
+.formOfAddAdmin h3,
+.allAdminsContainer h3 {
   color: #0ba9e7;
   padding-bottom: 3vh;
 }
 
 .wrongEmail{
   cursor: not-allowed !important;
+}
+
+.adminEmail{
+  width: 70%;
+  border-bottom: 1px dotted rgb(182, 182, 182);
+  padding-top: 5px;
+}
+.adminEmail, .iconOfDeletion {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.iconOfDeletion {
+  color: red;
+  transform: translateY(-5px);
+  cursor: pointer;
 }
