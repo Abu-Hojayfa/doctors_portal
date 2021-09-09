@@ -1,0 +1,14 @@
+.formOfAddAdmin,
+.allAdmin {
+  width: 80%;
+  background-color: white;
+  padding: 5vh 3vw;
+  border-radius: 10px;
+  box-shadow: -6px -6px 15px rgba(143, 143, 143, 0.5),
+    6px 6px 12px #ffffff00;
+}
+
+.formOfAddAdmin h3 {
+  color: #0ba9e7;
+  padding-bottom: 3vh;
+}

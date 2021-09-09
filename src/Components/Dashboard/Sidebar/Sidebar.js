@@ -36,7 +36,7 @@ const Sidebar = () => {
         <FontAwesomeIcon style={{ marginRight: "0px" }} icon={faUserFriends} />{" "}
         Patients
       </p>
-      <p onClick={(e) => goToPage("prescription")}>
+      <p onClick={(e) => goToPage("settings")}>
         <FontAwesomeIcon
           style={{ marginRight: "10px" }}
           icon={faCogs}

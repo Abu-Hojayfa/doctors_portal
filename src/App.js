@@ -7,6 +7,7 @@ import AppointmentDashboard from "./Components/Dashboard/AppointmentDashboard/Ap
 import Home from "./Components/Home/Home/Home";
 import Login from "./Components/Login/Login";
 import PrivateRoute from "./Components/Login/LoginEssential/PrivateRoute";
+import Settings from "./Components/Dashboard/Settings/Settings";
 
 function App() {
   return (
@@ -30,6 +31,10 @@ function App() {
 
         <PrivateRoute path="/allpatients">
           <Patients />
+        </PrivateRoute>
+        
+        <PrivateRoute path="/settings">
+          <Settings />
         </PrivateRoute>
 
         <Route path="/login">
