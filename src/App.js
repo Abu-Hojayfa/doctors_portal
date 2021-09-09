@@ -12,26 +12,32 @@ function App() {
   return (
     <Router>
       <Switch>
-        <Route exact path="/">
-          <Home />
-        </Route>
         <Route path="/home">
           <Home />
         </Route>
+
         <PrivateRoute path="/appointment">
           <Appointment />
         </PrivateRoute>
+
         <PrivateRoute path="/dashboard">
           <MainDashboard />
         </PrivateRoute>
+
         <PrivateRoute path="/allappointments">
           <AppointmentDashboard />
         </PrivateRoute>
+
         <PrivateRoute path="/allpatients">
           <Patients />
         </PrivateRoute>
+
         <Route path="/login">
           <Login />
+        </Route>
+
+        <Route exact path="/">
+          <Home />
         </Route>
       </Switch>
     </Router>

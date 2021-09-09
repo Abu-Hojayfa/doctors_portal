@@ -8,14 +8,21 @@ import {
   signInWithMail,
   createUserWithMail,
 } from "./LoginEssential/LoginMethod";
+import { useHistory, useLocation } from "react-router";
 
 const Login = () => {
   const [seePass, setSeePass] = useState(false);
   const [isLogin, setIsLogin] = useState(false);
   const [userInfo, setUserInfo] = useState([]);
 
+  let history = useHistory();
+  let location = useLocation();
+
+  let { from } = location.state || { from: { pathname: "/" } };
+
   const signInWithMailAndRederict = () => {
-    signInWithMail(userInfo);
+    signInWithMail(userInfo , history, from);
+
   };
 
   return (
