@@ -12,3 +12,7 @@
   color: #0ba9e7;
   padding-bottom: 3vh;
 }
+
+.wrongEmail{
+  cursor: not-allowed !important;
+}
