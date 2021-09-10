@@ -7,7 +7,7 @@ import AppointmentShedule from '../AppointmentShedule/AppointmentShedule';
 const Appointment = () => {
   const [value, onChange] = useState(new Date());
   return (
-    <div>
+    <div style={{scrollBehavior: "smooth"}}>
       <Navbar />
       <AppointmentMain onChange={onChange} value={value} />
       <AppointmentShedule value={value} />

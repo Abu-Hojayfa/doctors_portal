@@ -1,16 +1,13 @@
+import React from "react";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 
-const DeleteAndShowAdmin = ({ allAdminReloader, setAllAdminReloader }) => {
-  const [allAdmins, setAllAdmins] = useState([]);
-  useEffect(() => {
-    fetch("http://localhost:5000/alladmin")
-      .then((res) => res.json())
-      .then((data) => setAllAdmins(data));
-  }, [allAdminReloader]);
-
+const DeleteAndShowAdmin = ({
+  allAdminReloader,
+  setAllAdminReloader,
+  allAdmins,
+}) => {
   const deleteAnAdmin = (e) => {
     fetch("http://localhost:5000/deleteanadmin", {
       method: "POST",

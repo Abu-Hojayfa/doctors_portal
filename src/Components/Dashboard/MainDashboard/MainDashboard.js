@@ -18,7 +18,7 @@ const MainDashboard = () => {
     <div style={{ backgroundColor: "#e5fcff" }}>
       <div className="container-fluid row m-0 ps-0">
         <div className="col-md-2 ps-0">
-          <Sidebar />
+          <Sidebar showAll={true} />
         </div>
         <div className="col-md-9 ps-4">
           <MainDashTop allAppoints={allAppoints} />

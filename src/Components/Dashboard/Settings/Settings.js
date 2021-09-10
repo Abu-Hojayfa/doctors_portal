@@ -4,10 +4,13 @@ import Sidebar from "../Sidebar/Sidebar";
 import DeleteAndShowAdmin from "./DeleteAndShowAdmin";
 import "./Settings.css";
 
-const Settings = () => {
+const Settings = ({
+  setAllAdminReloader,
+  allAdminReloader,
+  allAdmins,
+}) => {
   const [emailCheck, setEmailCheck] = useState();
   const [emailData, setEmailData] = useState();
-  const [allAdminReloader, setAllAdminReloader] = useState(false);
 
   const onBlurHandle = (e) => {
     const email = e.target.value;
@@ -27,7 +30,6 @@ const Settings = () => {
       body: JSON.stringify({ email: emailData }),
     }).then((res) => {
       res.json();
-      console.log(res);
       if (res.status === 200) {
         Swal.fire({
           position: "center",
@@ -37,6 +39,8 @@ const Settings = () => {
           timer: 2000,
         });
         setAllAdminReloader(!allAdminReloader);
+        document.getElementById("addingAdmin").value = "";
+        setEmailCheck(true);
       }
     });
   };
@@ -44,7 +48,7 @@ const Settings = () => {
     <div style={{ backgroundColor: "#e5fcff" }}>
       <div className="container-fluid row m-0 ps-0">
         <div className="col-md-2 ps-0">
-          <Sidebar />
+          <Sidebar showAll={true} />
         </div>
         <div className="col-md-9 ps-4 pt-5">
           <div className="row mt-5 pt-5">
@@ -52,6 +56,7 @@ const Settings = () => {
               <div className="formOfAddAdmin">
                 <h3>Add a New Admin</h3>
                 <input
+                  id="addingAdmin"
                   onChange={(e) => onBlurHandle(e)}
                   className="form-control p-2 mb-3"
                   type="email"
@@ -84,6 +89,7 @@ const Settings = () => {
                 <DeleteAndShowAdmin
                   setAllAdminReloader={setAllAdminReloader}
                   allAdminReloader={allAdminReloader}
+                  allAdmins={allAdmins}
                 />
               </div>
             </div>

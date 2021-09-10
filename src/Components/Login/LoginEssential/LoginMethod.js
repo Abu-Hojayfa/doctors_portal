@@ -11,7 +11,7 @@ if (!initializeApp(firebaseConfig).length) {
   initializeApp(firebaseConfig);
 }
 
-const success = () => {
+const success = (e) => {
   const Toast = Swal.mixin({
     toast: true,
     position: "top-end",
@@ -26,7 +26,7 @@ const success = () => {
 
   Toast.fire({
     icon: "success",
-    title: "Signed in successfully",
+    title: `${e} successfully`,
   });
 };
 
@@ -38,12 +38,11 @@ const wrong = (errorCode, errorMessage) => {
   });
 };
 
-export const createUserWithMail = ({
-  firstName,
-  lastName,
-  email,
-  password,
-}) => {
+export const createUserWithMail = (
+  { firstName, lastName, email, password },
+  setIsLogin,
+  isLogin
+) => {
   if (email && password && firstName && lastName) {
     const auth = getAuth();
     createUserWithEmailAndPassword(auth, email, password)
@@ -51,12 +50,12 @@ export const createUserWithMail = ({
         // Signed in
         const user = userCredential.user;
         sessionStorage.setItem("email", user.email);
-        success();
+        success('Created User');
+        setIsLogin(!isLogin);
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
-
         wrong(errorCode, errorMessage);
       });
   }
@@ -71,12 +70,11 @@ export const signInWithMail = ({ email, password }, history, from) => {
         const user = userCredential.user;
         sessionStorage.setItem("email", user.email);
         history.replace(from);
-        success();
+        success('Signed in');
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
-
         wrong(errorCode, errorMessage);
       });
   }

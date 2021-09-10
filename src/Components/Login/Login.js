@@ -123,7 +123,7 @@ const Login = () => {
                   disabled={isSubmitting}
                   onClick={(e) =>
                     isLogin
-                      ? createUserWithMail(userInfo)
+                      ? createUserWithMail(userInfo, setIsLogin, isLogin)
                       : signInWithMailAndRederict()
                   }
                 >
