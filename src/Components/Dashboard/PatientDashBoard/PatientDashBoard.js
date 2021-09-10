@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
+import Swal from "sweetalert2";
 import Sidebar from "../Sidebar/Sidebar";
 import "./PatientDashBoardStyle.css";
 
 const PatientDashBoard = () => {
   const [myAppoints, setMyAppoints] = useState([]);
+  const [deleteAppt, setdeleteAppt] = useState(false);
 
   useEffect(() => {
     fetch("http://localhost:5000/myappoints", {
@@ -13,7 +15,34 @@ const PatientDashBoard = () => {
     })
       .then((res) => res.json())
       .then((data) => setMyAppoints(data));
-  }, []);
+  }, [deleteAppt]);
+
+  const handleDelete = (e) => {
+    fetch("http://localhost:5000/deleteappointsbyuserreq", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ id: e }),
+    }).then((res) => {
+      if (res.status === 200) {
+        Swal.fire({
+          position: "center",
+          title: "An Admin is Deleted",
+          icon: "success",
+          showConfirmButton: false,
+          timer: 2000,
+        });
+        setdeleteAppt(!deleteAppt);
+      } else {
+        Swal.fire({
+          position: "center",
+          title: "Something Error Happen :(",
+          icon: "error",
+          showConfirmButton: false,
+          timer: 2000,
+        });
+      }
+    });
+  };
 
   return (
     <div style={{ backgroundColor: "#e5fcff" }}>
@@ -27,7 +56,11 @@ const PatientDashBoard = () => {
             {myAppoints &&
               myAppoints.map((myAppoint) => (
                 <div key={myAppoint._id} className="col-md-3">
-                  <div className={`patientAppointCard ${myAppoint.action === "visited" && "bg-success"} ${myAppoint.action === "cancelled" && "bg-danger"}`}>
+                  <div
+                    className={`patientAppointCard ${
+                      myAppoint.action === "visited" && "bg-success"
+                    } ${myAppoint.action === "cancelled" && "bg-danger"}`}
+                  >
                     <p
                       style={{ textTransform: "capitalize" }}
                       className={`text-center`}
@@ -44,6 +77,18 @@ const PatientDashBoard = () => {
                       Visiting Time: {myAppoint.openTime} -{" "}
                       {myAppoint.closeTime}
                     </p>
+                    {myAppoint.action === "pending" ? (
+                      <button
+                        onClick={(e) => handleDelete(myAppoint._id)}
+                        className=" btn handleDelete   bg-danger"
+                      >
+                        Delete Appointment
+                      </button>
+                    ) : (
+                      <button className=" btn cantHandle  ">
+                        Action is completed
+                      </button>
+                    )}
                   </div>
                 </div>
               ))}

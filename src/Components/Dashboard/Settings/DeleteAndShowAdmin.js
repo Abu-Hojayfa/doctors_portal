@@ -18,11 +18,19 @@ const DeleteAndShowAdmin = ({
         Swal.fire({
           position: "center",
           title: "An Admin is Deleted",
-          icon: "error",
+          icon: "success",
           showConfirmButton: false,
           timer: 2000,
         });
         setAllAdminReloader(!allAdminReloader);
+      } else{
+        Swal.fire({
+          position: "center",
+          title: "Something Error Happen :(",
+          icon: "error",
+          showConfirmButton: false,
+          timer: 2000,
+        });
       }
     });
   };

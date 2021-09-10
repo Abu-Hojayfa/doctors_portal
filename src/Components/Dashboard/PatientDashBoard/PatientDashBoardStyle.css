@@ -1,4 +1,4 @@
-.patientAppointCard{
+.patientAppointCard {
   background-color: #08D0E2;
   padding: 25px 40px;
   border-radius: 10px;
@@ -7,4 +7,17 @@
   font-weight: 600;
   box-shadow: -6px -6px 30px rgba(143, 143, 143, 0.5),
     6px 6px 12px #ffffff00;
+}
+
+.cantHandle,
+.handleDelete {
+  color: white;
+  font-size: 18px;
+  font-weight: 600;
+  padding: 5px 20px;
+}
+
+.cantHandle {
+  cursor: not-allowed !important;
+
 }
