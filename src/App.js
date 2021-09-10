@@ -19,7 +19,7 @@ function App() {
   const checkAdmin = sessionStorage.getItem("email");
 
   useEffect(() => {
-    fetch("http://localhost:5000/alladmin")
+    fetch("https://doctors-portaal.herokuapp.com/alladmin")
       .then((res) => res.json())
       .then((data) => {
         setAllAdmins(data);

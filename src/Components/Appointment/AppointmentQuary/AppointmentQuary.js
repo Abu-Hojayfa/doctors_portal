@@ -44,7 +44,7 @@ const AppointmentQuary = ({ trtment, time, openTime, closeTime }) => {
     info.closeTime = closeTime;
     info.action = "pending";
 
-    fetch("http://localhost:5000/bookticket", {
+    fetch("https://doctors-portaal.herokuapp.com/bookticket", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(info),

@@ -17,7 +17,7 @@ const AppointmentTable = ({ value }) => {
   }
 
   useEffect(() => {
-    fetch("http://localhost:5000/appointmentbydate", {
+    fetch("https://doctors-portaal.herokuapp.com/appointmentbydate", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(dateValue),
@@ -50,7 +50,7 @@ const AppointmentTable = ({ value }) => {
             value === "visited"
           ) {
             resolve(
-              fetch("http://localhost:5000/changeaction", {
+              fetch("https://doctors-portaal.herokuapp.com/changeaction", {
                 method: "POST",
                 headers: { "content-type": "application/json" },
                 body: JSON.stringify({ id: data._id, action: value }),

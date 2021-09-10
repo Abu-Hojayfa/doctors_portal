@@ -9,7 +9,7 @@ const DeleteAndShowAdmin = ({
   allAdmins,
 }) => {
   const deleteAnAdmin = (e) => {
-    fetch("http://localhost:5000/deleteanadmin", {
+    fetch("https://doctors-portaal.herokuapp.com/deleteanadmin", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ id: e }),

@@ -8,7 +8,7 @@ const AppointmentShedule = ({ value }) => {
   const [availableAppointment, setAvailableApp] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/appointment-schedule")
+    fetch("https://doctors-portaal.herokuapp.com/appointment-schedule")
       .then((res) => res.json())
       .then((data) => setAvailableApp(data));
   }, []);

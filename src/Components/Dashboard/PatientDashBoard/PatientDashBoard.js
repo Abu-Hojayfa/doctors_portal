@@ -9,7 +9,7 @@ const PatientDashBoard = () => {
   const [deleteAppt, setdeleteAppt] = useState(false);
 
   useEffect(() => {
-    fetch("http://localhost:5000/myappoints", {
+    fetch("https://doctors-portaal.herokuapp.com/myappoints", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email: sessionStorage.getItem("email") }),
@@ -19,7 +19,7 @@ const PatientDashBoard = () => {
   }, [deleteAppt]);
 
   const handleDelete = (e) => {
-    fetch("http://localhost:5000/deleteappointsbyuserreq", {
+    fetch("https://doctors-portaal.herokuapp.com/deleteappointsbyuserreq", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ id: e }),
