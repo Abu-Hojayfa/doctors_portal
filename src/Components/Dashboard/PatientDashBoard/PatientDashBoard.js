@@ -1,3 +1,4 @@
+import moment from "moment";
 import React, { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import Sidebar from "../Sidebar/Sidebar";
@@ -26,7 +27,7 @@ const PatientDashBoard = () => {
       if (res.status === 200) {
         Swal.fire({
           position: "center",
-          title: "An Admin is Deleted",
+          title: "Your Pending Appointment is Deleted",
           icon: "success",
           showConfirmButton: false,
           timer: 2000,
@@ -72,6 +73,9 @@ const PatientDashBoard = () => {
                     <p>Contact No: +{myAppoint.number}</p>
                     <p style={{ textTransform: "capitalize" }}>
                       Doctor: Dr. {myAppoint.doctor}
+                    </p>
+                    <p>
+                      Date: {moment(myAppoint.value).format(" DD, MMMM YYYY")}
                     </p>
                     <p>
                       Visiting Time: {myAppoint.openTime} -{" "}
