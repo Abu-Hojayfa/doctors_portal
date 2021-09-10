@@ -18,7 +18,7 @@ const DeleteAndShowAdmin = ({
         Swal.fire({
           position: "center",
           title: "An Admin is Deleted",
-          icon: "success",
+          icon: "error",
           showConfirmButton: false,
           timer: 2000,
         });

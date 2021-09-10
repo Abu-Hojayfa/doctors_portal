@@ -31,8 +31,8 @@ const AppointmentTable = ({ value }) => {
 
   const alertToChange = (data) => {
     Swal.fire({
-      title: "Select field validation",
-      text: "Modal with a custom image.",
+      title: "Are you sure?",
+      text: `Changing Action for ${data.name}`,
       icon: "warning",
       input: "select",
       inputOptions: {
