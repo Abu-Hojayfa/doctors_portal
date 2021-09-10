@@ -125,6 +125,7 @@ const AppointmentQuary = ({ trtment, time, openTime, closeTime }) => {
               <input
                 type="text"
                 placeholder="Email"
+                defaultValue={`${sessionStorage.getItem('email')}`}
                 name="email"
                 {...register("email", {
                   required: true,

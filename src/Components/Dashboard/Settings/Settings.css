@@ -9,7 +9,8 @@
 }
 
 .formOfAddAdmin h3,
-.allAdminsContainer h3 {
+.allAdminsContainer h3,
+.patientDashBoard {
   color: #0ba9e7;
   padding-bottom: 3vh;
 }
