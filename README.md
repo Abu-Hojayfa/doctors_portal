@@ -8,9 +8,9 @@ A hospital website for taking appointments
 3. And in Dashboard patient can see his appointment status, or can delete while it is pending.
 4. Both Admins and Patients have their own dashboard (Coditonal and Private Routing).
 5. Admin's main dashboard has an overview of all data like total patients, pending patients, and a table of all patients.
-6. Admin's appointment page admin can search all patients by date. and can change their action(pending,cancelled,visited).
-7. Admin's all-patients show all the patients.
-8. Admin's cann add or remove another admin.
+6. In Admin's appointment, page admin can search all patients by date. and can change their action(pending,cancelled,visited).
+7. In Admin's all-patients,  show all the patients.
+8. Admin's cann add or  remove another admin.
 
 ## Technology
 React, Bootstrap, Firebase, MongoDb, Node, Express
