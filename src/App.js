@@ -18,6 +18,8 @@ function App() {
 
   const checkAdmin = sessionStorage.getItem("email");
 
+  
+  useEffect(() => {
   fetch("https://doctors-portaal.herokuapp.com/alladmin")
     .then((res) => res.json())
     .then((data) => {
@@ -25,7 +27,6 @@ function App() {
       setAdmins(data);
     });
 
-  useEffect(() => {
     for (let i = 0; i < admins.length; i++) {
       if (admins[i].email === checkAdmin) {
         setIsAdmin(true);
@@ -45,10 +46,14 @@ function App() {
         </PrivateRoute>
 
         <PrivateRoute path="/dashboard">
-          {isAdmin ? <MainDashboard /> : <PatientDashBoard />}
+          {isAdmin === true || checkAdmin === "admin123@gmail.com" ? (
+            <MainDashboard />
+          ) : (
+            <PatientDashBoard />
+          )}
         </PrivateRoute>
 
-        {isAdmin && (
+        {(isAdmin === true || checkAdmin === "admin123@gmail.com") && ( //as heroku dies after 30mint
           <>
             <PrivateRoute path="/allappointments">
               <AppointmentDashboard />
