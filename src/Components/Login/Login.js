@@ -22,7 +22,6 @@ const Login = () => {
 
   const signInWithMailAndRederict = () => {
     signInWithMail(userInfo , history, from);
-
   };
 
   return (

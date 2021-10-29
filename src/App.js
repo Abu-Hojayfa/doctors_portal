@@ -18,13 +18,14 @@ function App() {
 
   const checkAdmin = sessionStorage.getItem("email");
 
+  fetch("https://doctors-portaal.herokuapp.com/alladmin")
+    .then((res) => res.json())
+    .then((data) => {
+      setAllAdmins(data);
+      setAdmins(data);
+    });
+
   useEffect(() => {
-    fetch("https://doctors-portaal.herokuapp.com/alladmin")
-      .then((res) => res.json())
-      .then((data) => {
-        setAllAdmins(data);
-        setAdmins(data);
-      });
     for (let i = 0; i < admins.length; i++) {
       if (admins[i].email === checkAdmin) {
         setIsAdmin(true);
